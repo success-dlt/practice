@@ -3,7 +3,7 @@ using namespace std;
 class Solution
 {
 public:
-    void DFS(vector<vector<int>> &isConnected, vector<int> &visit, int cities, int i)
+    static void DFS(vector<vector<int>> &isConnected, vector<int> &visit, int cities, int i)
     {
         for (int j = 0; j < cities; j++)
         {
@@ -14,7 +14,7 @@ public:
             }
         }
     }
-    int findCircleNum(vector<vector<int>> &isConnected)
+    static int findCircleNum(vector<vector<int>> &isConnected)
     {
         int cities = isConnected.size();
         vector<int> visit;
@@ -33,8 +33,9 @@ public:
 };
 int main()
 {
-    vector<vector<int>> test;
-    Solution();
+    vector<vector<int>> test = {{1, 0, 0}, {1, 1, 0}, {0, 1, 1}};
+    int result = Solution::findCircleNum(test);
+    cout << result << endl;
 
     return 0;
 }
