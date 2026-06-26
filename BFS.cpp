@@ -5,16 +5,19 @@ void Solution1 ::BFS(vector<vector<int>> &isConnected, vector<int> &visit, int c
     vector<int> Q(cities);
     int front = 0;
     int rear = 0;
+    visit[i] = 1;
     Q[0] = i;
     rear++;
     while (front != rear)
     {
         int node = Q[front++];
-        visit[node] = 1;
         for (int j = 0; j < cities; j++)
         {
             if (isConnected[node][j] == 1 && !visit[j])
+            {
                 Q[rear++] = j;
+                visit[j] = 1;
+            }
         }
     }
 }
